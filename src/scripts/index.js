@@ -43,32 +43,99 @@ function createHeader() {
 
   const logo = document.createElement("img");
   logo.src = "../assets/images/logo.png";
-  logo.alt = "Blacklist Logo";
+  logo.alt = "Logo";
   logo.className = "logo";
 
   const brandText = document.createElement("div");
   brandText.className = "brand-text";
+  brandText.innerHTML = "<h1>ПОСИДИМ</h1><span>чай, кофе и еда</span>";
 
-  const h1 = document.createElement("h1");
-  h1.textContent = "ПОСИДИМ";
-  const span = document.createElement("span");
-  span.textContent = "чай, кофе и еда";
-
-  brandText.appendChild(h1);
-  brandText.appendChild(span);
-
-  navRight.appendChild(logo);
-  navRight.appendChild(brandText);
-
-  nav.appendChild(navLeft);
-  nav.appendChild(navRight);
-
+  navRight.append(logo, brandText);
+  nav.append(navLeft, navRight);
   return nav;
 }
 
-const hero = document.createElement("div");
-hero.className = "hero-section";
-const header = createHeader();
+function createHero() {
+  const hero = document.createElement("div");
+  hero.className = "hero-section";
 
-hero.appendChild(header);
-body.appendChild(hero);
+  const bgA = document.createElement("div");
+  const bgB = document.createElement("div");
+  bgA.className = bgB.className = "hero-bg";
+  hero.append(bgA, bgB);
+
+  const leftArrow = document.createElement("button");
+  const rightArrow = document.createElement("button");
+  leftArrow.className = "arrow arrow-left";
+  rightArrow.className = "arrow arrow-right";
+  leftArrow.innerHTML = "&#10094;";
+  rightArrow.innerHTML = "&#10095;";
+  hero.append(leftArrow, rightArrow);
+
+  hero.appendChild(createHeader());
+  body.appendChild(hero);
+
+  // slider
+
+  const images = [
+    "../assets/images/imgHero1.jpg",
+    "../assets/images/imgHero2.jpg",
+    "../assets/images/imgHero3.jpg",
+  ];
+
+  let current = 0;
+  let topBg = bgA;
+  const INTERVAL = 5000;
+  let timer;
+
+  // начальная картинка
+  bgA.style.backgroundImage = `url(${images[0]})`;
+  bgA.style.opacity = 1;
+
+  // плавная смена слоёв
+  function fadeTo(idx) {
+    const nextBg = topBg === bgA ? bgB : bgA;
+    nextBg.style.backgroundImage = `url(${images[idx]})`;
+    nextBg.style.opacity = 0;
+
+    requestAnimationFrame(() => {
+      nextBg.style.opacity = 1;
+      topBg.style.opacity = 0;
+      topBg = nextBg;
+    });
+  }
+
+  function nextSlide() {
+    current = (current + 1) % images.length;
+    console.log(current);
+
+    fadeTo(current);
+  }
+  function prevSlide() {
+    current = (current - 1 + images.length) % images.length;
+    fadeTo(current);
+  }
+
+  // автопрокрутка
+  function startAuto() {
+    timer = setInterval(nextSlide, INTERVAL);
+  }
+  function stopAuto() {
+    clearInterval(timer);
+  }
+  startAuto();
+
+  // обработчики
+  leftArrow.addEventListener("click", () => {
+    stopAuto();
+    prevSlide();
+    startAuto();
+  });
+  rightArrow.addEventListener("click", () => {
+    stopAuto();
+    nextSlide();
+    startAuto();
+  });
+}
+
+createHero()
