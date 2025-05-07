@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     subtitle.innerHTML = `
         We bring you unforgettable moments with our delicious dishes! <br>
         Each bite tells a story of passion and craftsmanship. <br>
-        Whether you’re here to relax or catch up with friends, we promise a delightful journey with every dish.
+        Whether you’re here to relax or catch up with friends, <br> we promise a delightful journey with every dish!
     `;
     imageWrapper.appendChild(subtitle);
 
@@ -75,7 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const aboutSection = document.createElement('div');
     aboutSection.className = 'about-section';
 
-    // Gallery on the left
     const gallery = document.createElement('div');
     gallery.className = 'about-section__gallery';
     aboutSection.appendChild(gallery);
@@ -86,7 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
     mainImage.alt = 'Main photo';
     gallery.appendChild(mainImage);
 
-    // Content on the right
     const content = document.createElement('div');
     content.className = 'about-section__content';
     aboutSection.appendChild(content);
@@ -108,20 +106,14 @@ document.addEventListener('DOMContentLoaded', () => {
         thumb.src = src;
         thumb.alt = 'Thumbnail';
         thumb.style.cursor = 'pointer';
-        thumb.style.filter = 'grayscale(100%)'; // Initially black and white
+        thumb.style.filter = 'grayscale(100%)';
 
         thumb.addEventListener('click', () => {
             mainImage.src = src;
-
-            // Make all thumbnails grayscale
             document.querySelectorAll('.about-section__thumbnail').forEach(img => {
                 img.style.filter = 'grayscale(100%)';
             });
-
-            // Set selected thumbnail to color
             thumb.style.filter = 'grayscale(0%)';
-
-            // Update index for auto-slideshow
             currentIndex = index;
         });
 
@@ -141,15 +133,80 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.body.appendChild(aboutSection);
 
-    // Auto-slideshow
     let currentIndex = 0;
     setInterval(() => {
         currentIndex = (currentIndex + 1) % imageSources.length;
         mainImage.src = imageSources[currentIndex];
-
-        // Update thumbnail filters
         document.querySelectorAll('.about-section__thumbnail').forEach((img, idx) => {
             img.style.filter = idx === currentIndex ? 'grayscale(0%)' : 'grayscale(100%)';
         });
     }, 3000);
+
+        // Новый блок с изображением и информацией
+        const historySection = document.createElement('div');
+        historySection.className = 'history-section';
+        document.body.appendChild(historySection);
+    
+        const historyImageWrapper = document.createElement('div');
+        historyImageWrapper.className = 'history-section__image-wrapper';
+        historySection.appendChild(historyImageWrapper);
+    
+        const historyImg = document.createElement('img');
+        historyImg.src = '../assets/images/barist.JPG'; // Замените на нужное изображение
+        historyImg.alt = 'Coffee Shop History';
+        historyImg.className = 'history-section__image';
+        historyImageWrapper.appendChild(historyImg);
+        
+        const historyContent = document.createElement('div');
+        historyContent.className = 'history-section__content';
+        historySection.appendChild(historyContent);
+    
+        const name = document.createElement('h3');
+        name.className = 'history-section__title';
+        name.textContent = `John's history`;
+        historyContent.appendChild(name);
+    
+        const description = document.createElement('p');
+        description.className = 'history-section__description';
+        description.innerHTML = `
+            Founded in 2010, our coffee shop has always been about more than just serving coffee. We strive to create a space where people can connect, relax, and enjoy great coffee. <br><br>
+            Our founder, John Doe, a passionate barista, dreamed of creating a place where everyone can find their favorite brew and feel at home. With over 10 years of experience, John believes that coffee is an experience to be savored.
+        `;
+        historyContent.appendChild(description);
+    
+        // Применяем анимацию к контенту
+        const words = description.innerHTML.split(' ').map((word, index) => 
+            `<span style="animation-delay: ${index * 0.1}s">${word}</span>`
+        ).join(' ');
+        description.innerHTML = words;
+            
+            // Создаем секцию достижений
+        const achievementsTitle = document.createElement('h2');
+        achievementsTitle.className = 'achievements-title';
+        achievementsTitle.textContent = 'Our Achievements';
+        document.body.appendChild(achievementsTitle);
+
+        const achievementsImageWrapper = document.createElement('div');
+        achievementsImageWrapper.className = 'achievements-image-wrapper';
+        document.body.appendChild(achievementsImageWrapper);
+        
+        // Массив изображений достижений
+        const achievementsImages = [
+            { src: '../assets/images/nagra.png', alt: 'Achievement 1', id: 'achievement-1'},
+            { src: '../assets/images/sertif.png', alt: 'Achievement 2' }, // Добавь свое изображение
+            { src: '../assets/images/nagrad.png', alt: 'Achievement 3' }  // Добавь свое изображение
+        ];
+        
+        achievementsImages.forEach(item => {
+            const img = document.createElement('img');
+            img.className = 'achievements-image';
+            img.src = item.src;
+            img.alt = item.alt;
+            achievementsImageWrapper.appendChild(img);
+        });
+        
+
+
+
+        
 });

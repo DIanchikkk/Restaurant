@@ -10,26 +10,26 @@ function createHeader() {
 
   const li1 = document.createElement("li");
   const a1 = document.createElement("a");
-  a1.href = "#";
+  a1.href = "index.html";
   a1.className = "active";
   a1.textContent = "Главная";
   li1.appendChild(a1);
 
   const li2 = document.createElement("li");
   const a2 = document.createElement("a");
-  a2.href = "#";
+  a2.href = "about.html";
   a2.textContent = "О нас";
   li2.appendChild(a2);
 
   const li3 = document.createElement("li");
   const a3 = document.createElement("a");
-  a3.href = "#";
+  a3.href = "menu.html";
   a3.textContent = "Меню";
   li3.appendChild(a3);
 
   const li4 = document.createElement("li");
   const a4 = document.createElement("a");
-  a4.href = "#";
+  a4.href = "basket.html";
   a4.textContent = "Корзина";
   li4.appendChild(a4);
 

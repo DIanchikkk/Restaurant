@@ -103,12 +103,34 @@ body {
     display: flex;
     gap: 2rem;
     padding: 2rem;
-    background-color: #504e2e	;
+    background-color: #3d3b23	;  
+    /* background-color: #394129; */
     border-radius: 12px;
     max-width: 1000px;
     margin: 2rem auto;
     color: white;
 }
+
+.about-us__title,
+.about-us__subtitle {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid rgba(255, 255, 255, 0.75);
+    animation: typingAndErasing 8s steps(40, end) infinite, blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typingAndErasing {
+    0% { width: 0; }
+    50% { width: 100%; }
+    100% { width: 0; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: rgba(255, 255, 255, 0.75); }
+}
+
+
 
 .about-section__gallery {
     flex: 1;
@@ -160,3 +182,144 @@ body {
     font-size: 1rem;
     line-height: 1.6;
 }
+
+.history-section {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: stretch; /* чтобы дети были одинаковой высоты */
+    padding: 40px;
+    max-width: 1200px;
+    margin: 40px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.history-section__image-wrapper,
+.history-section__content {
+    flex: 1 1 500px;
+    max-width: 500px;
+}
+
+
+.history-section__image-wrapper {
+    flex: 1;
+    margin-top: 60px;
+    /* max-width: 500px;
+    max-height: 250px; */
+}
+
+.history-section__image {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.history-section__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    height: 340px;
+    margin-top: 55px;
+    border: 3px solid white;
+    animation: borderPulse 1.5s infinite alternate;
+    box-sizing: border-box;
+    max-width: 450px;
+
+}
+
+@keyframes borderPulse {
+    0% {
+        border-color: white;
+        box-shadow: 0 0 10px rgba(255,255,255,0.5);
+    }
+    100% {
+        border-color: #b47b4e;
+        box-shadow: 0 0 20px rgba(180,123,78,0.8);
+    }
+}
+
+
+.history-section__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.history-section__description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: white;
+}
+
+.history-section__description span {
+    opacity: 0;
+    animation: fadeLoop 10s infinite;
+}
+
+@keyframes fadeLoop {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+
+.achievements-title {
+    font-family: "Winky Rough", sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    margin: 3rem 0 1rem 0;
+    color: #fff;
+}
+
+
+
+.achievements-image-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* отступы между картинками */
+    margin-top: 2rem;
+    animation: floatLeftRight 3s ease-in-out infinite alternate;
+}
+
+
+.achievements-image {
+    width: 250px; /* или твой размер */
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+    object-fit: contain; /* изображение сохранит пропорции и не будет сжато */
+}
+
+.achievements-image:hover {
+    transform: scale(1.05);
+}
+
+@keyframes floatLeftRight {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-20px);
+    }
+    100% {
+        transform: translateX(20px);
+    }
+}
+
+
+
