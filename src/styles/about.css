@@ -1,27 +1,27 @@
 body {
-    background-image: url("../assets/images/bg_4.jpg"); /* Background for body */
+    background-image: url("../assets/images/bg_4.jpg");
     background-size: cover;
     background-position: center;
-    font-family: "Winky Rough", sans-serif;
+    font-family: "Noto Sans", sans-serif;
     margin: 0;
     padding: 0;
 }
 
 .header {
-    background-image: url("../assets/images/bg_4.jpg"); /* Background for header */
+    background-image: url("../assets/images/bg_4.jpg");
     background-size: cover;
     background-position: center;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
-    opacity: 0.9; /* Transparency for header */
+    opacity: 0.9;
 }
 
 .header__container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 1rem;
+    padding: 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -29,15 +29,16 @@ body {
 }
 
 .header__logo {
-    font-family: "Winky Rough", sans-serif;
-    font-size: 2rem;
+    font-family: "Noto Sans", sans-serif;
+    font-size: 32px;
     color: white;
+    font-weight: 600;
 }
 
 .header__nav-list {
     list-style: none;
     display: flex;
-    gap: 1.5rem;
+    gap: 24px;
     margin: 0;
     padding: 0;
 }
@@ -45,7 +46,8 @@ body {
 .header__nav-link {
     text-decoration: none;
     color: white;
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 16px;
 }
 
 .header__nav-link:hover {
@@ -54,8 +56,8 @@ body {
 
 .about-us__image-wrapper {
     position: relative;
-    height: 110vh; /* Limit the height of the image block */
-    overflow: hidden; /* Hide part of the image */
+    height: 110vh;
+    overflow: hidden;
 }
 
 .about-us__image {
@@ -72,65 +74,43 @@ body {
     color: white;
     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
     text-align: center;
-    font-family: "Winky Rough", sans-serif;
+    font-family: "Noto Sans", sans-serif;
 }
 
 .about-us__title {
     top: 40%;
-    font-size: 2.5rem;
+    font-size: 36px;
     margin: 0;
 }
 
 .about-us__subtitle {
     top: 50%;
-    font-size: 1.2rem;
+    font-size: 18px;
     margin: 0;
     max-width: 80%;
 }
 
 .our-history-title {
-    font-family: "Winky Rough", sans-serif;
-    font-size: 35px;
+    font-family: "Noto Sans", sans-serif;
+    font-size: 32px;
     color: white;
     text-align: center;
-    margin-top: 5rem;
+    margin-top: 50px;
     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
     font-weight: 700;
+    margin-bottom: 50px;
 }
 
-/* --------- ABOUT SECTION --------- */
 .about-section {
     display: flex;
-    gap: 2rem;
-    padding: 2rem;
-    background-color: #3d3b23	;  
-    /* background-color: #394129; */
+    gap: 32px;
+    padding: 32px;
+    background-color: #adaa86;
     border-radius: 12px;
     max-width: 1000px;
-    margin: 2rem auto;
+    margin: 32px auto;
     color: white;
 }
-
-.about-us__title,
-.about-us__subtitle {
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 2px solid rgba(255, 255, 255, 0.75);
-    animation: typingAndErasing 8s steps(40, end) infinite, blink-caret 0.75s step-end infinite;
-}
-
-@keyframes typingAndErasing {
-    0% { width: 0; }
-    50% { width: 100%; }
-    100% { width: 0; }
-}
-
-@keyframes blink-caret {
-    from, to { border-color: transparent; }
-    50% { border-color: rgba(255, 255, 255, 0.75); }
-}
-
-
 
 .about-section__gallery {
     flex: 1;
@@ -157,12 +137,11 @@ body {
 
 .about-section__thumbnails {
     display: flex;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
+    gap: 8px;
+    margin-bottom: 16px;
     flex-wrap: wrap;
 }
 
-/* -------- MINIATURES -------- */
 .about-section__thumbnail {
     width: 60px;
     height: 60px;
@@ -179,7 +158,7 @@ body {
 }
 
 .about-section__content p {
-    font-size: 1rem;
+    font-size: 16px;
     line-height: 1.6;
 }
 
@@ -187,7 +166,7 @@ body {
     display: flex;
     gap: 30px;
     justify-content: center;
-    align-items: stretch; /* чтобы дети были одинаковой высоты */
+    align-items: stretch;
     padding: 40px;
     max-width: 1200px;
     margin: 40px auto;
@@ -201,12 +180,9 @@ body {
     max-width: 500px;
 }
 
-
 .history-section__image-wrapper {
     flex: 1;
     margin-top: 60px;
-    /* max-width: 500px;
-    max-height: 250px; */
 }
 
 .history-section__image {
@@ -223,11 +199,11 @@ body {
     padding: 20px;
     height: 340px;
     margin-top: 55px;
+    border-radius: 12px;
     border: 3px solid white;
     animation: borderPulse 1.5s infinite alternate;
     box-sizing: border-box;
     max-width: 450px;
-
 }
 
 @keyframes borderPulse {
@@ -241,9 +217,8 @@ body {
     }
 }
 
-
 .history-section__title {
-    font-size: 1.5rem;
+    font-size: 24px;
     font-weight: bold;
     color: white;
     margin-bottom: 15px;
@@ -251,75 +226,212 @@ body {
 }
 
 .history-section__description {
-    font-size: 1rem;
+    font-size: 15.5px;
     line-height: 1.6;
     color: white;
+    margin-top: 2px;
 }
 
-.history-section__description span {
+.reservation-section {
+    max-width: 800px;
+    margin: 48px auto;
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #adaa86;
+    color: white;
+    border: 3px solid #adaa86;
+    box-sizing: border-box;
+}
+
+.reservation-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 16px;
+    font-family: "Noto Sans", sans-serif;
+    text-transform: uppercase;
+}
+
+.reservation-description {
+    text-align: center;
+    margin-bottom: 32px;
+    color: #adaa86;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.reservation-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.form-field {
+    flex: 1 1 calc(50% - 16px);
+    display: flex;
+    flex-direction: column;
+}
+
+.form-field label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.form-field input {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.submit-button {
+    margin: 0 auto;
+    display: block;
+    padding: 12px 24px;
+    border: none;
+    background: #b47b4e;
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+}
+
+.submit-button:hover {
+    transform: scale(1.05);
+    background: #a0693e;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+    position: relative;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.footer__schedule {
+    position: absolute;
+    top: -40px;
+    right: 40px;
+    width: 260px;
+    height: 350px;
+    background-color: #adaa86;
+    color: white;
+    padding: 20px;
+    border: 2px solid white;
+    box-sizing: border-box;
+    text-align: center;
+
+    /* Стартовое состояние */
     opacity: 0;
-    animation: fadeLoop 10s infinite;
+    transform: translateY(-100%);
+    transition: transform 0.8s ease, opacity 0.8s ease;
 }
 
-@keyframes fadeLoop {
+@keyframes slideDownFade {
     0% {
         opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
+        transform: translateY(-100%);
     }
     100% {
-        opacity: 0;
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
+.footer__schedule--visible {
+    animation: slideDownFade 0.8s ease forwards;
+}
 
+.footer__schedule-title {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
 
-.achievements-title {
-    font-family: "Winky Rough", sans-serif;
-    font-size: 2rem;
-    text-align: center;
-    margin: 3rem 0 1rem 0;
+.footer__schedule-time {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.footer__reservation {
+    font-size: 16px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.footer__reservation-number {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.footer__left {
+    flex: 0 0 65%;
+    max-width: 65%;
     color: #fff;
 }
 
+.footer__right {
+    flex: 0 0 30%;
+    max-width: 30%;
+    /* Пока пустая */
+}
 
+.footer__title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: white;
+}
 
-.achievements-image-wrapper {
+.footer__description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 20px;
+    max-width: 90%;
+}
+
+.footer__divider {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 20px 0;
+}
+
+.footer__info-columns {
     display: flex;
-    justify-content: center;
-    gap: 20px; /* отступы между картинками */
-    margin-top: 2rem;
-    animation: floatLeftRight 3s ease-in-out infinite alternate;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-
-.achievements-image {
-    width: 250px; /* или твой размер */
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s;
-    object-fit: contain; /* изображение сохранит пропорции и не будет сжато */
+.footer__info-block {
+    flex: 1 1 30%;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ccc;
+    min-width: 120px;
 }
 
-.achievements-image:hover {
-    transform: scale(1.05);
+.footer a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-@keyframes floatLeftRight {
-    0% {
-        transform: translateX(0);
-    }
-    50% {
-        transform: translateX(-20px);
-    }
-    100% {
-        transform: translateX(20px);
-    }
+.footer a:hover {
+    color: #b47b4e;
+    text-shadow: 0 0 5px rgba(180, 123, 78, 0.8);
 }
-
-
-

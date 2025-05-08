@@ -1,7 +1,7 @@
 import '../styles/about.css';
 
 document.addEventListener('DOMContentLoaded', () => {
-
+    // Создание основного хедера
     const header = document.createElement('header');
     header.className = 'header';
 
@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.body.prepend(header);
 
+    // Создание секции о нас
     const aboutUs = document.createElement('div');
     aboutUs.className = 'about-us';
 
@@ -46,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     aboutUs.appendChild(imageWrapper);
 
     const img = document.createElement('img');
-    img.src = '../assets/images/kofeynja.webp';
+    img.src = '../assets/images/cof.jpg';
     img.alt = 'Описание фотографии';
     img.className = 'about-us__image';
     imageWrapper.appendChild(img);
@@ -58,15 +59,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const subtitle = document.createElement('h2');
     subtitle.className = 'about-us__subtitle';
-    subtitle.innerHTML = `
-        We bring you unforgettable moments with our delicious dishes! <br>
-        Each bite tells a story of passion and craftsmanship. <br>
-        Whether you’re here to relax or catch up with friends, <br> we promise a delightful journey with every dish!
-    `;
+    subtitle.innerHTML = 
+    'We bring you unforgettable moments with our delicious dishes! <br>' +
+    'Whether you’re here to relax or catch up with friends, <br> we promise a delightful journey with every dish!';
+
     imageWrapper.appendChild(subtitle);
 
     document.body.appendChild(aboutUs);
 
+    // Создание заголовка о кофейне
     const ourHistory = document.createElement('h2');
     ourHistory.className = 'our-history-title';
     ourHistory.textContent = 'Our Coffee Shop';
@@ -108,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
         thumb.style.cursor = 'pointer';
         thumb.style.filter = 'grayscale(100%)';
 
+        // При клике на миниатюру меняем изображение
         thumb.addEventListener('click', () => {
             mainImage.src = src;
             document.querySelectorAll('.about-section__thumbnail').forEach(img => {
@@ -142,71 +144,226 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, 3000);
 
-        // Новый блок с изображением и информацией
-        const historySection = document.createElement('div');
-        historySection.className = 'history-section';
-        document.body.appendChild(historySection);
-    
-        const historyImageWrapper = document.createElement('div');
-        historyImageWrapper.className = 'history-section__image-wrapper';
-        historySection.appendChild(historyImageWrapper);
-    
-        const historyImg = document.createElement('img');
-        historyImg.src = '../assets/images/barist.JPG'; // Замените на нужное изображение
-        historyImg.alt = 'Coffee Shop History';
-        historyImg.className = 'history-section__image';
-        historyImageWrapper.appendChild(historyImg);
-        
-        const historyContent = document.createElement('div');
-        historyContent.className = 'history-section__content';
-        historySection.appendChild(historyContent);
-    
-        const name = document.createElement('h3');
-        name.className = 'history-section__title';
-        name.textContent = `John's history`;
-        historyContent.appendChild(name);
-    
-        const description = document.createElement('p');
-        description.className = 'history-section__description';
-        description.innerHTML = `
-            Founded in 2010, our coffee shop has always been about more than just serving coffee. We strive to create a space where people can connect, relax, and enjoy great coffee. <br><br>
-            Our founder, John Doe, a passionate barista, dreamed of creating a place where everyone can find their favorite brew and feel at home. With over 10 years of experience, John believes that coffee is an experience to be savored.
-        `;
-        historyContent.appendChild(description);
-    
-        // Применяем анимацию к контенту
-        const words = description.innerHTML.split(' ').map((word, index) => 
-            `<span style="animation-delay: ${index * 0.1}s">${word}</span>`
-        ).join(' ');
-        description.innerHTML = words;
-            
-            // Создаем секцию достижений
-        const achievementsTitle = document.createElement('h2');
-        achievementsTitle.className = 'achievements-title';
-        achievementsTitle.textContent = 'Our Achievements';
-        document.body.appendChild(achievementsTitle);
+    // Новый блок с историей кофейни
+    const historySection = document.createElement('div');
+    historySection.className = 'history-section';
+    document.body.appendChild(historySection);
 
-        const achievementsImageWrapper = document.createElement('div');
-        achievementsImageWrapper.className = 'achievements-image-wrapper';
-        document.body.appendChild(achievementsImageWrapper);
-        
-        // Массив изображений достижений
-        const achievementsImages = [
-            { src: '../assets/images/nagra.png', alt: 'Achievement 1', id: 'achievement-1'},
-            { src: '../assets/images/sertif.png', alt: 'Achievement 2' }, // Добавь свое изображение
-            { src: '../assets/images/nagrad.png', alt: 'Achievement 3' }  // Добавь свое изображение
-        ];
-        
-        achievementsImages.forEach(item => {
-            const img = document.createElement('img');
-            img.className = 'achievements-image';
-            img.src = item.src;
-            img.alt = item.alt;
-            achievementsImageWrapper.appendChild(img);
+    const historyImageWrapper = document.createElement('div');
+    historyImageWrapper.className = 'history-section__image-wrapper';
+    historySection.appendChild(historyImageWrapper);
+
+    const historyImg = document.createElement('img');
+    historyImg.src = '../assets/images/barist.JPG'; // Замените на нужное изображение
+    historyImg.alt = 'Coffee Shop History';
+    historyImg.className = 'history-section__image';
+    historyImageWrapper.appendChild(historyImg);
+
+    const historyContent = document.createElement('div');
+    historyContent.className = 'history-section__content';
+    historySection.appendChild(historyContent);
+
+    const name = document.createElement('h3');
+    name.className = 'history-section__title';
+    name.textContent = "John's history";
+    historyContent.appendChild(name);
+
+    const description = document.createElement('p');
+    description.className = 'history-section__description';
+    description.innerHTML = `
+        Founded in 2010, our coffee shop has always been about more than just serving coffee. We strive to create a space where people can connect, relax, and enjoy great coffee. <br><br>
+        Our founder, John Doe, a passionate barista, dreamed of creating a place where everyone can find their favorite brew and feel at home. With over 10 years of experience, John believes that coffee is an experience to be savored.
+    `;
+    historyContent.appendChild(description);
+
+    // Добавляем новую секцию для формы бронирования
+    const reservationSection = document.createElement('section');
+    reservationSection.className = 'reservation-section';
+
+    const formTitle = document.createElement('h2');
+    formTitle.className = 'reservation-title';
+    formTitle.textContent = 'Reserve Your Table';
+    reservationSection.appendChild(formTitle);
+
+    const formDescription = document.createElement('p');
+    formDescription.className = 'reservation-description';
+    formDescription.textContent =
+        'We are willing to help you make the reservation online to save your time and money or you can call us directly through the customer service hotline: 225-88888';
+    reservationSection.appendChild(formDescription);
+
+    const form = document.createElement('form');
+    form.className = 'reservation-form';
+    form.noValidate = true;
+
+    const fields = [
+        { label: 'Full Name', type: 'text', name: 'name', placeholder: 'Enter your name', required: true },
+        { label: 'Email', type: 'email', name: 'email', placeholder: 'Enter your email', required: true },
+        { label: 'Phone', type: 'tel', name: 'phone', placeholder: 'Enter your phone', required: true },
+        { label: 'Date', type: 'date', name: 'date', required: true },
+        { label: 'Time', type: 'time', name: 'time', required: true },
+        { label: 'Number of People', type: 'number', name: 'people', placeholder: 'Number of people', min: 1, required: true }
+    ];
+
+    // Генерация полей формы
+    fields.forEach((field, index) => {
+        const fieldWrapper = document.createElement('div');
+        fieldWrapper.className = 'form-field';
+
+        const label = document.createElement('label');
+        label.textContent = field.label;
+        label.setAttribute('for', field.name);
+
+        const input = document.createElement('input');
+        input.type = field.type;
+        input.name = field.name;
+        input.id = field.name;
+        if (field.placeholder) input.placeholder = field.placeholder;
+        if (field.required) input.required = true;
+        if (field.min) input.min = field.min;
+
+        fieldWrapper.appendChild(label);
+        fieldWrapper.appendChild(input);
+
+        form.appendChild(fieldWrapper);
+
+        // Добавляем класс для разбиения на 2 колонки
+        if (index % 2 === 0) {
+            fieldWrapper.classList.add('left');
+        } else {
+            fieldWrapper.classList.add('right');
+        }
+    });
+
+    const submitButton = document.createElement('button');
+    submitButton.type = 'submit';
+    submitButton.className = 'submit-button';
+    submitButton.textContent = 'Book Now';
+
+    form.appendChild(submitButton);
+    reservationSection.appendChild(form);
+    document.body.appendChild(reservationSection);
+
+    // Валидация формы
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (form.checkValidity()) {
+            alert('Reservation submitted successfully!');
+            form.reset();
+        } else {
+            alert('Please fill out all required fields correctly.');
+        }
+    });
+
+    // Создание футера
+    const footer = document.createElement('footer');
+    footer.className = 'footer';
+
+    // Левая колонка футера
+    const footerLeft = document.createElement('div');
+    footerLeft.className = 'footer__left';
+
+    const footerTitle = document.createElement('h2');
+    footerTitle.className = 'footer__title';
+    footerTitle.textContent = 'Contacts';
+
+    const descriptions = document.createElement('p');
+    descriptions.className = 'footer__description';
+    descriptions.textContent = 'We are passionate about crafting the perfect coffee experience for our community every day.';
+
+    const divider = document.createElement('hr');
+    divider.className = 'footer__divider';
+
+    const infoColumns = document.createElement('div');
+    infoColumns.className = 'footer__info-columns';
+
+    const address = document.createElement('div');
+    address.className = 'footer__info-block';
+    address.innerHTML = `
+        <strong>Address</strong><br>
+        123 Brew Street,<br>
+        Coffee City, CC 45678
+    `;
+
+    const contact = document.createElement('div');
+    contact.className = 'footer__info-block';
+    contact.innerHTML = `
+        <strong>Phone</strong><br>
+        <a href="tel:+1234567890">+1 (234) 567-890</a><br>
+        <a href="tel:+9876543210">+1 (987) 654-3210</a>
+    `;
+
+    const email = document.createElement('div');
+    email.className = 'footer__info-block';
+    email.innerHTML = `
+        <strong>Email</strong><br>
+        <a href="mailto:admin@fooday.com">admin@fooday.com</a><br>
+        <a href="mailto:support@fooday.com">support@fooday.com</a>
+    `;
+
+    infoColumns.appendChild(address);
+    infoColumns.appendChild(contact);
+    infoColumns.appendChild(email);
+
+    footerLeft.appendChild(footerTitle);
+    footerLeft.appendChild(descriptions);
+    footerLeft.appendChild(divider);
+    footerLeft.appendChild(infoColumns);
+
+    // Правая колонка футера (расписание)
+    const footerRight = document.createElement('div');
+    footerRight.className = 'footer__right';
+
+    const scheduleBox = document.createElement('div');
+    scheduleBox.className = 'footer__schedule';
+
+    const scheduleTitle = document.createElement('div');
+    scheduleTitle.className = 'footer__schedule-title';
+    scheduleTitle.textContent = 'OPEN HOURS';
+
+    const scheduleTime = document.createElement('div');
+    scheduleTime.className = 'footer__schedule-time';
+    scheduleTime.innerHTML = `
+        Monday: 8 AM - 8 PM<br>
+        Tuesday: 8 AM - 8 PM<br>
+        Wednesday: 8 AM - 8 PM<br>
+        Thursday: 8 AM - 8 PM<br>
+        Friday: 8 AM - 10 PM<br>
+        Saturday: 9 AM - 6 PM<br>
+        Sunday: Closed
+    `;
+
+    const reservationLabel = document.createElement('div');
+    reservationLabel.className = 'footer__reservation';
+    reservationLabel.textContent = 'Reservation Numbers';
+
+    const reservationNumber = document.createElement('div');
+    reservationNumber.className = 'footer__reservation-number';
+    reservationNumber.textContent = '+1 (234) 567-890';
+
+    scheduleBox.appendChild(scheduleTitle);
+    scheduleBox.appendChild(scheduleTime);
+    scheduleBox.appendChild(reservationLabel);
+    scheduleBox.appendChild(reservationNumber);
+
+    footerRight.appendChild(scheduleBox);
+
+    footer.appendChild(footerLeft);
+    footer.appendChild(footerRight);
+
+    document.body.appendChild(footer);
+
+    // Intersection Observer для появления при скролле
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                scheduleBox.classList.remove('footer__schedule--visible');
+                void scheduleBox.offsetWidth;
+                scheduleBox.classList.add('footer__schedule--visible');
+            }
         });
-        
+    }, {
+        threshold: 0.1
+    });
 
-
-
-        
+    observer.observe(footer);
 });
