@@ -48,7 +48,7 @@ ul.nav-left {
   padding: 0;
 }
 ul.nav-left li a {
-  color: #fff;
+  color: black;
   text-decoration: none;
   font-weight: 400;
   font-size: 18px;
@@ -72,7 +72,7 @@ ul.nav-left li a:hover:after {
   margin-bottom: 16px;
 }
 .brand-text h1 {
-  color: #fff;
+  color: black;
   font-weight: 700;
   letter-spacing: 0.18em;
   margin: 10px 0 2px;
@@ -80,7 +80,7 @@ ul.nav-left li a:hover:after {
   font-size: 44px;
 }
 .brand-text span {
-  color: #fff;
+  color: black;
   letter-spacing: 0.24em;
   font-size: 16px;
   font-weight: 300;
