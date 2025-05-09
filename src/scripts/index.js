@@ -75,6 +75,19 @@ function createHero() {
   hero.appendChild(createHeader());
   body.appendChild(hero);
 
+       // ✅ создаем фиксированный кружок
+       const circleButton = document.createElement('a');
+       circleButton.href = 'basket.html';  // куда ведет кружок
+       circleButton.className = 'circle-button';
+       circleButton.innerHTML = `
+       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 24 24">
+           <path d="M7 4v2h1l3.6 7.59-1.35 2.44c-.17.31-.25.65-.25 1 0 1.1.9 2 2 2h9v-2h-8.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h5.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.3.12-.48 0-.55-.45-1-1-1h-14zm0 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+       </svg>
+       `;
+       
+       document.body.appendChild(circleButton);
+   
+
   // slider
 
   const images = [

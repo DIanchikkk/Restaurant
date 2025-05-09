@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap');
 
 body {
-  background: white;
+  background: #adaa86;
   font-family: 'Montserrat', Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -51,7 +51,7 @@ body {
 }
 
 .menu-item {
-  background: #fff;
+  background: #adaa86;
   border-radius: 32px;
   overflow: hidden;
   position: relative;
@@ -182,3 +182,33 @@ body {
     text-align: center;
     font-size: 18px;
   }
+
+
+  .circle-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.516);
+    border-radius: 50%;
+    /* box-shadow: 0 2px 6px adaa86; */
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 28px;
+    -webkit-text-stroke: 1px white;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+.circle-button svg {
+    margin-right: 5px;
+    margin-bottom: 3px;
+}
+
+.circle-button:hover {
+    transform: scale(1.1);
+}

@@ -1,58 +1,139 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap');
+
 body {
     background-image: url("../assets/images/bg_4.jpg");
     background-size: cover;
     background-position: center;
-    font-family: "Noto Sans", sans-serif;
+    font-family: 'Montserrat', Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-.header {
-    background-image: url("../assets/images/bg_4.jpg");
+/* Основной блок hero */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+  
+  .hero-bg {
+    position: absolute;
+    inset: 0;
     background-size: cover;
     background-position: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    position: sticky;
+    background-repeat: no-repeat;
+    transition: opacity 1.5s ease;
+    opacity: 0;
+    z-index: 0;
+  }
+  
+  /* Навигация (хедер) */
+  .header-new {
+    position: absolute;
     top: 0;
-    z-index: 1000;
-    opacity: 0.9;
-}
-
-.header__container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 16px;
+    left: 0;
+    width: 100%;
+    /* display: flex;
+    justify-content: space-between;
+    align-items: center; */
+    padding: 36px 48px 0 48px;
+    box-sizing: border-box;
+    z-index: 2;
+  }
+  nav{
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-top: -80px;
-}
-
-.header__logo {
-    font-family: "Noto Sans", sans-serif;
-    font-size: 32px;
-    color: white;
-    font-weight: 600;
-}
-
-.header__nav-list {
+  }
+  /* Левая часть навигации */
+  ul.nav-left {
     list-style: none;
     display: flex;
-    gap: 24px;
+    gap: 25px;
     margin: 0;
     padding: 0;
-}
-
-.header__nav-link {
-    text-decoration: none;
+    margin-top: 28px;
+  }
+  
+  ul.nav-left li a {
     color: white;
-    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.459);
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 18px;
+  }
+
+  ul.nav-left li a.active:after,
+  ul.nav-left li a:hover:after {
+    content: "";
+    display: block;
+    width: 24px;
+    margin: auto;
+    margin-top: 4px;
+    border-bottom: 2px solid white;
+  }
+  
+  /* Правая часть навигации */
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  
+  .logo {
+    width: 60px;
+    margin-bottom: 16px;
+  }
+  
+  .brand-text h1 {
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.459);
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    margin: 10px 0 2px;
+    text-align: center;
+    font-size: 44px;
+  }
+  
+  .brand-text span {
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.453);
+    letter-spacing: 0.24em;
     font-size: 16px;
+    font-weight: 300;
+    text-align: center;
+  }
+  
+
+  .circle-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #adaa86;
+    border-radius: 50%;
+    /* box-shadow: 0 2px 6px adaa86; */
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 28px;
+    -webkit-text-stroke: 1px white;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+.circle-button svg {
+    margin-right: 5px;
+    margin-bottom: 3px;
 }
 
-.header__nav-link:hover {
-    color: #b47b4e;
+.circle-button:hover {
+    transform: scale(1.1);
 }
+
 
 .about-us__image-wrapper {
     position: relative;
@@ -72,9 +153,9 @@ body {
     left: 50%;
     transform: translateX(-50%);
     color: white;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.413);
     text-align: center;
-    font-family: "Noto Sans", sans-serif;
+    font-family: 'Montserrat', Arial, sans-serif;
 }
 
 .about-us__title {
@@ -91,7 +172,7 @@ body {
 }
 
 .our-history-title {
-    font-family: "Noto Sans", sans-serif;
+    font-family: 'Montserrat', Arial, sans-serif;
     font-size: 32px;
     color: white;
     text-align: center;
@@ -247,7 +328,7 @@ body {
     text-align: center;
     font-size: 32px;
     margin-bottom: 16px;
-    font-family: "Noto Sans", sans-serif;
+    font-family: 'Montserrat', Arial, sans-serif;
     text-transform: uppercase;
 }
 
