@@ -1,6 +1,12 @@
 import '../styles/basket.css';
 import '../styles/basketModule.css';
-import { initBasket } from './basketModule.js';
+import {
+    initBasket,          
+    registerBasketContainer,
+    updateBasketItems,
+    updateAllBasketItems
+} from './basketModule.js';
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -25,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
         a.href = page.href;
         a.textContent = page.text;
     
-        // ✅ Автоматическая установка active по текущему пути
         if (window.location.pathname.endsWith(page.href)) {
             a.classList.add('active');
         }
@@ -52,6 +57,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.body.prepend(header);
 
-initBasket()
+    initBasket();
+    // ✅ Зарегистрировать контейнер главной корзины, если нужен ещё один (например, страница)
+const mainContainer = document.querySelector('.basket-items');
+if (mainContainer) {
+    registerBasketContainer(mainContainer);
+}
+// 🆕 Обработчики кнопок на странице корзины (не попап)
+const orderAllPageBtn = document.querySelector('.order-all-page');
+const clearBasketPageBtn = document.querySelector('.clear-basket-page');
+
+if (orderAllPageBtn && clearBasketPageBtn) {
+    orderAllPageBtn.addEventListener('click', () => {
+        const basket = JSON.parse(localStorage.getItem('basket')) || [];
+
+        if (basket.length === 0) {
+            alert('Your cart is empty!');
+            return;
+        }
+
+        const summary = basket.map(item => `${item.name} x${item.quantity}`).join('\n');
+        alert(`Order placed for:\n${summary}`);
+
+        // Очищаем корзину
+        localStorage.removeItem('basket');
+        updateAllBasketItems();
+    });
+
+    clearBasketPageBtn.addEventListener('click', () => {
+        localStorage.removeItem('basket');
+        updateAllBasketItems();
+        alert('Basket cleared!');
+    });
+}
+
 
 });

@@ -118,36 +118,29 @@ function createMenuItem({ src, alt, title, price, isNew = false }) {
   addButton.textContent = "Add to cart";
   addButton.style.marginTop = "10px";
   addButton.addEventListener("click", () => {
-    addButton.addEventListener("click", () => {
-        const quantity = parseInt(counter.textContent, 10);
-        if (quantity > 0) {
-            const newItem = {
-                name: title,
-                quantity,
-                image: src  // добавляем картинку для карточки в корзине
-            };
-    
-            // Сначала проверяем, есть ли уже такой товар в корзине:
-            const basket = JSON.parse(localStorage.getItem('basket')) || [];
-            const existingItem = basket.find(item => item.name === newItem.name);
-    
-            if (existingItem) {
-                existingItem.quantity += quantity;  // увеличиваем количество
-            } else {
-                basket.push(newItem);  // добавляем новый товар
-            }
-    
-            localStorage.setItem('basket', JSON.stringify(basket));
-    
-            // Обновляем корзину визуально:
-            updateBasketItems();
-    
-            // Сбрасываем счетчик обратно на 0 после добавления:
-            counter.textContent = "0";
+    const quantity = parseInt(counter.textContent, 10);
+    if (quantity > 0) {
+        const newItem = {
+            name: title,
+            quantity,
+            image: src
+        };
+
+        const basket = JSON.parse(localStorage.getItem('basket')) || [];
+        const existingItem = basket.find(item => item.name === newItem.name);
+
+        if (existingItem) {
+            existingItem.quantity += quantity;
+        } else {
+            basket.push(newItem);
         }
-    });
-    
-  });
+
+        localStorage.setItem('basket', JSON.stringify(basket));
+        updateBasketItems();
+        counter.textContent = "0";
+    }
+});
+
   info.appendChild(addButton);
 
   const priceDiv = document.createElement("div");

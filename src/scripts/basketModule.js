@@ -1,3 +1,19 @@
+const basketContainers = [];  // 🔥 Новый массив для хранения всех контейнеров
+
+// Функция для регистрации контейнеров (можно вызывать из basket.js)
+export function registerBasketContainer(container) {
+    if (container && !basketContainers.includes(container)) {
+        basketContainers.push(container);
+    }
+}
+
+// Функция для массового обновления всех контейнеров
+export function updateAllBasketItems() {
+    basketContainers.forEach(container => {
+        updateBasketItems(container);
+    });
+}
+
 // Функция для создания кнопки корзины
 export function createBasketButton() {
     const circleButton = document.createElement('a');
@@ -27,18 +43,23 @@ export function createBasketPopup() {
     </div>
 `;
     document.body.appendChild(basketPopup);
+
+    // 🔥 Регистрируем внутренний контейнер корзины
+    const basketItemsContainer = basketPopup.querySelector('.basket-items');
+    registerBasketContainer(basketItemsContainer);
+
     return basketPopup;
 }
 
-// Функция для обновления содержимого корзины
-export function updateBasketItems() {
-    const basketItemsContainer = document.querySelector('.basket-items');
+// Обновление корзины с поддержкой кастомного контейнера
+export function updateBasketItems(container = null) {
+    const targetContainer = container || document.querySelector('.basket-items');
     const items = JSON.parse(localStorage.getItem('basket')) || [];
 
     if (items.length === 0) {
-        basketItemsContainer.innerHTML = '<p>Your cart is empty</p>';
+        targetContainer.innerHTML = '<p>Your cart is empty</p>';
     } else {
-        basketItemsContainer.innerHTML = '';
+        targetContainer.innerHTML = '';
         items.forEach((item, index) => {
             const card = document.createElement('div');
             card.className = 'basket-item-card';
@@ -62,11 +83,10 @@ export function updateBasketItems() {
                 if (item.quantity > 1) {
                     item.quantity--;
                 } else {
-                    // если количество 1, удаляем товар полностью
                     items.splice(index, 1);
                 }
                 localStorage.setItem('basket', JSON.stringify(items));
-                updateBasketItems(); // Обновляем корзину
+                updateAllBasketItems(); // ✅ Обновляем все корзины
             });
 
             const qtyText = document.createElement('span');
@@ -77,7 +97,7 @@ export function updateBasketItems() {
             plusBtn.addEventListener('click', () => {
                 item.quantity++;
                 localStorage.setItem('basket', JSON.stringify(items));
-                updateBasketItems(); // Обновляем корзину
+                updateAllBasketItems(); // ✅ Обновляем все корзины
             });
 
             qtyWrap.appendChild(minusBtn);
@@ -96,7 +116,6 @@ export function updateBasketItems() {
             orderBtn.className = 'order-btn';
             orderBtn.addEventListener('click', () => {
                 alert(`Order placed for: ${item.name} (${item.quantity})`);
-                // Здесь можешь добавить код для отправки заказа на сервер и т.д.
             });
 
             const deleteBtn = document.createElement('button');
@@ -105,7 +124,7 @@ export function updateBasketItems() {
             deleteBtn.addEventListener('click', () => {
                 items.splice(index, 1);
                 localStorage.setItem('basket', JSON.stringify(items));
-                updateBasketItems(); // Обновляем корзину
+                updateAllBasketItems(); // ✅ Обновляем все корзины
             });
 
             buttonsWrap.appendChild(orderBtn);
@@ -115,7 +134,7 @@ export function updateBasketItems() {
             card.appendChild(details);
             card.appendChild(buttonsWrap);
 
-            basketItemsContainer.appendChild(card);
+            targetContainer.appendChild(card);
         });
     }
 }
@@ -125,13 +144,21 @@ export function addItemToBasket(item) {
     const basket = JSON.parse(localStorage.getItem('basket')) || [];
     basket.push(item);
     localStorage.setItem('basket', JSON.stringify(basket));
+    updateAllBasketItems();  // ✅ Обновляем все корзины при добавлении нового товара
 }
 
 // Новая функция initBasket для инициализации корзины
 export function initBasket() {
     const basketButton = createBasketButton();   // Создаем кнопку корзины
     const basketPopup = createBasketPopup();     // Создаем попап корзины
-    updateBasketItems();                         // Обновляем содержимое корзины
+
+    // ✅ Зарегистрировать контейнер главной корзины, если нужен ещё один (например, страница)
+    const mainContainer = document.querySelector('.basket-items');
+    if (mainContainer) {
+        registerBasketContainer(mainContainer);
+    }
+
+    updateAllBasketItems();                      // Обновляем содержимое всех корзин
 
     // Открытие попапа при клике на кнопку корзины
     basketButton.addEventListener('click', (e) => {
@@ -161,7 +188,7 @@ export function initBasket() {
 
         // Очистка корзины после оформления
         localStorage.removeItem('basket');
-        updateBasketItems(); // Обновляем корзину
+        updateAllBasketItems(); // ✅ Обновляем все корзины
         basketPopup.classList.remove('active');
     });
 }

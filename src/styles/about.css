@@ -343,12 +343,12 @@ body {
     display: block;
     padding: 12px 24px;
     border: none;
-    background: #b47b4e;
+    background-color: #b47b4e;
     color: white;
     font-size: 16px;
     border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.2s, background 0.3s;
+    transition: transform 0.2s, background-color 0.3s;
 }
 
 .submit-button:hover {
