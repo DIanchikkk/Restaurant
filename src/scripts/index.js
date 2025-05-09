@@ -12,25 +12,25 @@ function createHeader() {
   const a1 = document.createElement("a");
   a1.href = "index.html";
   a1.className = "active";
-  a1.textContent = "Главная";
+  a1.textContent = "Home";
   li1.appendChild(a1);
 
   const li2 = document.createElement("li");
   const a2 = document.createElement("a");
   a2.href = "about.html";
-  a2.textContent = "О нас";
+  a2.textContent = "About";
   li2.appendChild(a2);
 
   const li3 = document.createElement("li");
   const a3 = document.createElement("a");
   a3.href = "menu.html";
-  a3.textContent = "Меню";
+  a3.textContent = "Menu";
   li3.appendChild(a3);
 
   const li4 = document.createElement("li");
   const a4 = document.createElement("a");
   a4.href = "basket.html";
-  a4.textContent = "Корзина";
+  a4.textContent = "Basket";
   li4.appendChild(a4);
 
   navLeft.appendChild(li1);
@@ -48,7 +48,7 @@ function createHeader() {
 
   const brandText = document.createElement("div");
   brandText.className = "brand-text";
-  brandText.innerHTML = "<h1>ПОСИДИМ</h1><span>чай, кофе и еда</span>";
+  brandText.innerHTML = "<h1>ПОСИДИМ</h1><span>coffee, tea and food</span>";
 
   navRight.append(logo, brandText);
   nav.append(navLeft, navRight);
