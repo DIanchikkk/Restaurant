@@ -105,34 +105,6 @@ body {
   }
   
 
-  .circle-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    background-color: #adaa86;
-    border-radius: 50%;
-    /* box-shadow: 0 2px 6px adaa86; */
-    cursor: pointer;
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 28px;
-    -webkit-text-stroke: 1px white;
-    text-decoration: none;
-    transition: transform 0.2s ease;
-}
-.circle-button svg {
-    margin-right: 5px;
-    margin-bottom: 3px;
-}
-
-.circle-button:hover {
-    transform: scale(1.1);
-}
 
 
 .about-us__image-wrapper {
