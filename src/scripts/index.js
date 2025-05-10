@@ -44,7 +44,7 @@ function createHeader() {
   navRight.className = "nav-right";
 
   const logo = document.createElement("img");
-  logo.src = "../assets/images/logo.png";
+  logo.src = "../assets/images/logo1.png";
   logo.alt = "Logo";
   logo.className = "logo";
 
@@ -77,14 +77,14 @@ function createHero() {
   hero.appendChild(createHeader());
   body.appendChild(hero);
 
-
-
   // slider
 
   const images = [
     "../assets/images/imgHero1.jpg",
     "../assets/images/imgHero2.jpg",
     "../assets/images/imgHero3.jpg",
+    "../assets/images/imgHero4.jpg",
+    "../assets/images/imgHero5.jpg",
   ];
 
   let current = 0;

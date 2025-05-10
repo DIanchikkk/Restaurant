@@ -1,10 +1,27 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap");
 
 body {
-  background: #adaa86;
-  font-family: 'Montserrat', Arial, sans-serif;
+  background: #BDBDAA;
+  font-family: "Montserrat", Arial, sans-serif;
   margin: 0;
   padding: 0;
+}
+
+ul.nav-left li a {
+  color: black;
+}
+
+ul.nav-left li a.active:after,
+ul.nav-left li a:hover:after {
+  border-bottom: 2px solid black;
+}
+
+.brand-text h1 {
+  color: black;
+}
+
+.brand-text span {
+  color: black;
 }
 
 .container {
@@ -40,7 +57,7 @@ body {
 }
 
 .sidebar-item:hover:not(.main-title) {
-  color: #D67642;
+  color: #d67642;
 }
 
 .menu {
@@ -51,7 +68,7 @@ body {
 }
 
 .menu-item {
-  background: #adaa86;
+  background: #BDBDAA;
   border-radius: 32px;
   overflow: hidden;
   position: relative;
@@ -82,12 +99,12 @@ body {
 
 .menu-desc {
   font-size: 15px;
-  color: #8A8A8A;
+  color: #8a8a8a;
   margin-bottom: 12px;
 }
 
 .menu-price {
-  color: #D67642;
+  color: #d67642;
   font-size: 20px;
   font-weight: 500;
   margin-top: 0.5em;
@@ -97,7 +114,7 @@ body {
   position: absolute;
   top: 18px;
   right: 18px;
-  background: #C04C2E;
+  background: #c04c2e;
   color: #fff;
   font-size: 15px;
   font-weight: 500;
@@ -105,29 +122,6 @@ body {
   border-radius: 50px;
   z-index: 1;
 }
-
-/* @media (max-width: 1100px) {
-  .menu {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .container {
-    flex-direction: column;
-  }
-  .sidebar-menu {
-    flex-direction: row;
-    margin-right: 0;
-    margin-bottom: 24px;
-    padding-top: 0;
-  }
-  .sidebar-item {
-    margin-right: 32px;
-    margin-bottom: 0;
-  }
-  .sidebar-item.main-title {
-    margin-right: 48px;
-    margin-bottom: 0;
-  }
-} */
 
 @media (max-width: 700px) {
   .menu {
@@ -156,50 +150,68 @@ body {
 }
 
 .menu-buttons {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  
-  .menu-buttons button {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    border: none;
-    background: #f7d8c0;
-    color: #bf624e;
-    font-size: 18px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 2s;
-  }
-  
-  .menu-buttons button:hover {
-    background: #eab895;
-  }
-  .menu-buttons span {
-    min-width: 22px;
-    text-align: center;
-    font-size: 18px;
-  }
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.menu-buttons button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: #f7d8c0;
+  color: #bf624e;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 2s;
+}
+
+.menu-buttons button:hover {
+  background: #eab895;
+}
+.menu-buttons span {
+  min-width: 22px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.add-to-cart-btn {
+  margin-top: 10px;
+  background-color: #d67642;
+  color: #f7d8c0;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 24px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #bf5a2c;
+}
 
 
-  .add-to-cart-btn {
-    margin-top: 10px;
-    background-color: #D67642;
-    color: #f7d8c0;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 24px;
-    font-size: 15px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
+.menu-item{
+    opacity:1;
+    transform:translateY(0);
+    transition:opacity .35s ease, transform .35s ease;
+  }
+  .menu-item.hidden{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  @keyframes fadeInUp{
+    from{opacity:0;transform:translateY(20px);}
+    to  {opacity:1;transform:translateY(0);}
+  }
+  .menu-item.animate-in{
+    animation:fadeInUp .45s ease forwards;
   }
   
-  .add-to-cart-btn:hover {
-    background-color: #bf5a2c;
+  .sidebar-item.active {
+   color: #d67642;
   }
-
-  
-  
