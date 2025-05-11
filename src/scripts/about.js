@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navRight.className = 'nav-right';
 
     const logo = document.createElement('img');
-    logo.src = '../assets/images/logo1.png';
+    logo.src = '../assets/images/logo.png';
     logo.alt = 'Logo';
     logo.className = 'logo';
 
