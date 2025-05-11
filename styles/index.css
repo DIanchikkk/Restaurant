@@ -1,0 +1,327 @@
+/*!************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/styles/index.css ***!
+  \************************************************************************/
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap);
+/*!*******************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/styles/basketModule.css ***!
+  \*******************************************************************************/
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap);
+/*!****************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/styles/index.css (1) ***!
+  \****************************************************************************/
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Montserrat", Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity 1.5s ease;
+  opacity: 0;
+  z-index: 0;
+}
+
+/* навигация */
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 36px 48px 0 48px;
+  box-sizing: border-box;
+  z-index: 2;
+}
+ul.nav-left {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+ul.nav-left li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 18px;
+}
+ul.nav-left li a.active:after,
+ul.nav-left li a:hover:after {
+  content: "";
+  display: block;
+  width: 24px;
+  margin: auto;
+  margin-top: 4px;
+  border-bottom: 2px solid #fff;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.logo {
+  width: 60px;
+  margin-bottom: 16px;
+}
+.brand-text h1 {
+  color: white;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  margin: 10px 0 2px;
+  text-align: center;
+  font-size: 44px;
+}
+.brand-text span {
+  color: white;
+  letter-spacing: 0.24em;
+  font-size: 16px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  color: #fff;
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s, transform 0.25s;
+  z-index: 2;
+}
+.arrow-left {
+  left: 24px;
+}
+.arrow-right {
+  right: 24px;
+}
+.arrow:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+/*!***********************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/styles/basketModule.css (1) ***!
+  \***********************************************************************************/
+.circle-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #0000005d;
+    border-radius: 50%;
+    /* box-shadow: 0 2px 6px adaa86; */
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 28px;
+    -webkit-text-stroke: 1px white;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+  }
+  .circle-button svg {
+    margin-right: 5px;
+    margin-bottom: 3px;
+  }
+  
+  .circle-button:hover {
+    transform: scale(1.1);
+  }
+  
+  .basket-popup {
+    display: none;
+    position: fixed;
+    right: 80px;
+    top: 80px;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    z-index: 1000;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    max-width: 350px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.basket-popup.active {
+    display: block;
+}
+
+.basket-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.basket-content h2 {
+    margin: 0;
+    font-size: 20px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    color: #333;
+}
+
+.basket-items {
+    max-height: 400px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Стилизация карточки товара */
+.basket-item-card {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.basket-item-card:hover {
+    transform: translateY(-3px);
+}
+
+.basket-item-card img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.basket-item-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+
+.basket-item-details p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.basket-item-details .quantity {
+    font-size: 12px;
+    color: #777;
+}
+
+.close-basket {
+    align-self: center;
+    padding: 10px 20px;
+    background-color: #adaa86;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.close-basket:hover {
+    background: #b47b4e;
+}
+
+.basket-action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.basket-action-buttons button {
+    padding: 5px 10px;
+    font-size: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #adaa86;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.basket-action-buttons button:hover {
+    background: #b47b4e;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.quantity-controls button {
+    padding: 3px 8px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #ddd;
+    transition: background-color 0.3s ease;
+}
+
+.quantity-controls button:hover {
+    background: #bbb;
+}
+
+.quantity-controls span {
+    min-width: 20px;
+    text-align: center;
+}
+
+.basket-footer-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.order-all-basket {
+    padding: 10px 20px;
+    background-color: #adaa86;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.order-all-basket:hover {
+    background: #b47b4e;
+}
+
