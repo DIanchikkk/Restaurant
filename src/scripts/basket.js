@@ -58,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.prepend(header);
 
     initBasket();
-    // ✅ Зарегистрировать контейнер главной корзины, если нужен ещё один (например, страница)
 const mainContainer = document.querySelector('.basket-items');
 if (mainContainer) {
     registerBasketContainer(mainContainer);
