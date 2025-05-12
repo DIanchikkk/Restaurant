@@ -208,6 +208,6 @@ filterButtons.forEach((btn) => {
 filterButtons[0].dispatchEvent(new Event("click"));
 
 
-  //  7.  Basket init
+  // Basket init
 
 initBasket();

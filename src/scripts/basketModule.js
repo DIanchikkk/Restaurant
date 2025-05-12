@@ -1,4 +1,4 @@
-const basketContainers = [];  // 🔥 Новый массив для хранения всех контейнеров
+const basketContainers = [];  //Новый массив для хранения всех контейнеров
 
 // Функция для регистрации контейнеров (можно вызывать из basket.js)
 export function registerBasketContainer(container) {
@@ -31,7 +31,7 @@ export function createBasketButton() {
 // Функция для создания попапа корзины
 export function createBasketPopup() {
     const basketPopup = document.createElement('div');
-    basketPopup.className = 'basket-popup'; // по умолчанию скрыт (CSS делает это)
+    basketPopup.className = 'basket-popup'; 
     basketPopup.innerHTML = `
     <div class="basket-content">
         <h2>Your cart</h2>
@@ -44,7 +44,7 @@ export function createBasketPopup() {
 `;
     document.body.appendChild(basketPopup);
 
-    // 🔥 Регистрируем внутренний контейнер корзины
+    // Регистрируем внутренний контейнер корзины
     const basketItemsContainer = basketPopup.querySelector('.basket-items');
     registerBasketContainer(basketItemsContainer);
 
@@ -86,7 +86,7 @@ export function updateBasketItems(container = null) {
                     items.splice(index, 1);
                 }
                 localStorage.setItem('basket', JSON.stringify(items));
-                updateAllBasketItems(); // ✅ Обновляем все корзины
+                updateAllBasketItems(); // Обновляю все корзины
             });
 
             const qtyText = document.createElement('span');
@@ -97,7 +97,7 @@ export function updateBasketItems(container = null) {
             plusBtn.addEventListener('click', () => {
                 item.quantity++;
                 localStorage.setItem('basket', JSON.stringify(items));
-                updateAllBasketItems(); // ✅ Обновляем все корзины
+                updateAllBasketItems(); 
             });
 
             qtyWrap.appendChild(minusBtn);
@@ -124,7 +124,7 @@ export function updateBasketItems(container = null) {
             deleteBtn.addEventListener('click', () => {
                 items.splice(index, 1);
                 localStorage.setItem('basket', JSON.stringify(items));
-                updateAllBasketItems(); // ✅ Обновляем все корзины
+                updateAllBasketItems(); 
             });
 
             buttonsWrap.appendChild(orderBtn);
@@ -144,26 +144,25 @@ export function addItemToBasket(item) {
     const basket = JSON.parse(localStorage.getItem('basket')) || [];
     basket.push(item);
     localStorage.setItem('basket', JSON.stringify(basket));
-    updateAllBasketItems();  // ✅ Обновляем все корзины при добавлении нового товара
+    updateAllBasketItems();  
 }
 
-// Новая функция initBasket для инициализации корзины
+// initBasket для инициализации корзины
 export function initBasket() {
-    const basketButton = createBasketButton();   // Создаем кнопку корзины
-    const basketPopup = createBasketPopup();     // Создаем попап корзины
+    const basketButton = createBasketButton();   
+    const basketPopup = createBasketPopup();     
 
-    // ✅ Зарегистрировать контейнер главной корзины, если нужен ещё один (например, страница)
     const mainContainer = document.querySelector('.basket-items');
     if (mainContainer) {
         registerBasketContainer(mainContainer);
     }
 
-    updateAllBasketItems();                      // Обновляем содержимое всех корзин
+    updateAllBasketItems();                      
 
     // Открытие попапа при клике на кнопку корзины
     basketButton.addEventListener('click', (e) => {
         e.preventDefault();
-        basketPopup.classList.toggle('active'); // Переключаем видимость
+        basketPopup.classList.toggle('active'); 
     });
 
     // Закрытие попапа при клике на "Close"
@@ -182,13 +181,13 @@ export function initBasket() {
             return;
         }
 
-        // Сформируем сообщение о заказе
+        // Формирование сообщения о заказе
         const summary = basket.map(item => `${item.name} x${item.quantity}`).join('\n');
         alert(`Order placed for:\n${summary}`);
 
         // Очистка корзины после оформления
         localStorage.removeItem('basket');
-        updateAllBasketItems(); // ✅ Обновляем все корзины
+        updateAllBasketItems();
         basketPopup.classList.remove('active');
     });
 }

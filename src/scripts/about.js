@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
         a.href = page.href;
         a.textContent = page.text;
     
-        // ✅ Автоматическая установка active по текущему пути
         if (window.location.pathname.endsWith(page.href)) {
             a.classList.add('active');
         }
@@ -53,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.prepend(header);
    
 
-    // Создание секции о нас
+    // Секция о нас
     const aboutUs = document.createElement('div');
     aboutUs.className = 'about-us';
 
@@ -82,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.body.appendChild(aboutUs);
 
-    // Создание заголовка о кофейне
+    // Секция с историей кофейни
     const ourHistory = document.createElement('h2');
     ourHistory.className = 'our-history-title';
     ourHistory.textContent = 'Our Coffee Shop';
@@ -169,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
     historySection.appendChild(historyImageWrapper);
 
     const historyImg = document.createElement('img');
-    historyImg.src = '../assets/images/barist.JPG'; // Замените на нужное изображение
+    historyImg.src = '../assets/images/barist.JPG'; 
     historyImg.alt = 'Coffee Shop History';
     historyImg.className = 'history-section__image';
     historyImageWrapper.appendChild(historyImg);
@@ -191,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     historyContent.appendChild(description);
 
-    // Добавляем новую секцию для формы бронирования
+    // Добавляю новую секцию для формы бронирования
     const reservationSection = document.createElement('section');
     reservationSection.className = 'reservation-section';
 
@@ -241,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         form.appendChild(fieldWrapper);
 
-        // Добавляем класс для разбиения на 2 колонки
+        // Добавляю класс для разбиения на 2 колонки
         if (index % 2 === 0) {
             fieldWrapper.classList.add('left');
         } else {

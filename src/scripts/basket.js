@@ -62,7 +62,7 @@ const mainContainer = document.querySelector('.basket-items');
 if (mainContainer) {
     registerBasketContainer(mainContainer);
 }
-// 🆕 Обработчики кнопок на странице корзины (не попап)
+// Обработчики кнопок на странице корзины 
 const orderAllPageBtn = document.querySelector('.order-all-page');
 const clearBasketPageBtn = document.querySelector('.clear-basket-page');
 
@@ -78,7 +78,7 @@ if (orderAllPageBtn && clearBasketPageBtn) {
         const summary = basket.map(item => `${item.name} x${item.quantity}`).join('\n');
         alert(`Order placed for:\n${summary}`);
 
-        // Очищаем корзину
+        // Очищаю корзину
         localStorage.removeItem('basket');
         updateAllBasketItems();
     });
