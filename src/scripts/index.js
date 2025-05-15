@@ -2,6 +2,14 @@ import "../styles/index.css";
 import '../styles/basketModule.css';
 import { initBasket } from "./basketModule.js";
 
+import imgHero1 from '../assets/images/imgHero1.jpg';
+import imgHero2 from '../assets/images/imgHero2.jpg';
+import imgHero3 from '../assets/images/imgHero3.jpg';
+import imgHero4 from '../assets/images/imgHero4.jpg';
+import imgHero5 from '../assets/images/imgHero5.jpg';
+import logo from '../assets/images/logo1.png';
+
+
 const body = document.querySelector("body");
 
 function createHeader() {
@@ -43,16 +51,17 @@ function createHeader() {
   const navRight = document.createElement("div");
   navRight.className = "nav-right";
 
-  const logo = document.createElement("img");
-  logo.src = "../assets/images/logo1.png";
-  logo.alt = "Logo";
-  logo.className = "logo";
+  const logoImg = document.createElement("img");
+  logoImg.src = logo; 
+  logoImg.alt = "Logo";
+  logoImg.className = "logo";
+  
 
   const brandText = document.createElement("div");
   brandText.className = "brand-text";
   brandText.innerHTML = "<h1>POSIDIM</h1><span>coffee, tea and food</span>";
 
-  navRight.append(logo, brandText);
+  navRight.append(logoImg, brandText);
   nav.append(navLeft, navRight);
   return nav;
 }
@@ -79,13 +88,8 @@ function createHero() {
 
   // slider
 
-  const images = [
-    "../assets/images/imgHero1.jpg",
-    "../assets/images/imgHero2.jpg",
-    "../assets/images/imgHero3.jpg",
-    "../assets/images/imgHero4.jpg",
-    "../assets/images/imgHero5.jpg",
-  ];
+  const images = [imgHero1, imgHero2, imgHero3, imgHero4, imgHero5];
+
 
   let current = 0;
   let topBg = bgA;
