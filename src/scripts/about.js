@@ -2,6 +2,13 @@ import '../styles/about.css';
 import '../styles/basketModule.css';
 import { initBasket } from './basketModule.js';
 
+import logoImage from "../assets/images/logo.png";
+import cofImg from "../assets/images/cof.jpg";
+import baristaImg from "../assets/images/barista.jpg";
+import coffeeImg from "../assets/images/coffee.jpg";
+import coffeeWebp from "../assets/images/coffee.webp";
+import historyWebp from "../assets/images/history.WEBP";
+import baristHistory from "../assets/images/barist.JPG";
 
 document.addEventListener('DOMContentLoaded', () => {
     const header = document.createElement('header');
@@ -37,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navRight.className = 'nav-right';
 
     const logo = document.createElement('img');
-    logo.src = '../assets/images/logo.png';
+    logo.src = logoImage;
     logo.alt = 'Logo';
     logo.className = 'logo';
 
@@ -61,8 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
     aboutUs.appendChild(imageWrapper);
 
     const img = document.createElement('img');
-    img.src = '../assets/images/cof.jpg';
-    img.alt = 'Описание фотографии';
+    img.src = cofImg;
+    img.alt = 'Кофейня';
     img.className = 'about-us__image';
     imageWrapper.appendChild(img);
 
@@ -96,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const mainImage = document.createElement('img');
     mainImage.className = 'about-section__main-image';
-    mainImage.src = '../assets/images/barista.jpg';
+    mainImage.src = baristaImg;
     mainImage.alt = 'Main photo';
     gallery.appendChild(mainImage);
 
@@ -108,12 +115,8 @@ document.addEventListener('DOMContentLoaded', () => {
     thumbnails.className = 'about-section__thumbnails';
     content.appendChild(thumbnails);
 
-    const imageSources = [
-        '../assets/images/barista.jpg',
-        '../assets/images/coffee.jpg',
-        '../assets/images/coffee.webp',
-        '../assets/images/history.WEBP',
-    ];
+    const imageSources = [baristaImg, coffeeImg, coffeeWebp, historyWebp];
+
 
     imageSources.forEach((src, index) => {
         const thumb = document.createElement('img');
@@ -168,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
     historySection.appendChild(historyImageWrapper);
 
     const historyImg = document.createElement('img');
-    historyImg.src = '../assets/images/barist.JPG'; 
+    historyImg.src = baristHistory;
     historyImg.alt = 'Coffee Shop History';
     historyImg.className = 'history-section__image';
     historyImageWrapper.appendChild(historyImg);
